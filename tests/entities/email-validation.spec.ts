@@ -1,3 +1,4 @@
+import { log } from 'console'
 import Email from '../../src/entities/email'
 
 describe('E-mail validation', () => {
@@ -26,8 +27,15 @@ describe('E-mail validation', () => {
   })
 
   test('should not accept local part larger than 64 characters', () => {
-    const email: string =
-      'askdaskdaskdoaskdoaskdoaskdlsdalçsdalsdasldasldsalçdldaslçasdsads@email.com'
+    const email: string = 'l'.repeat(65) + '@email.com'
+
+    const ret: boolean = Email.validate(email)
+
+    expect(ret).toBeFalsy()
+  })
+
+  test('should not accept whole email larger than 320 characters', () => {
+    const email: string = 'l'.repeat(64) + '@' + 'd'.repeat(128) + '.' + 'd'.repeat(127)
 
     const ret: boolean = Email.validate(email)
 
