@@ -65,4 +65,12 @@ describe('E-mail validation', () => {
 
     expect(ret).toBeFalsy()
   })
+
+  test('should not accept domain parts with more than 63 characters', () => {
+    const email: string = 'any@' + 'd'.repeat(64) + '.com'
+
+    const ret: boolean = Email.validate(email)
+
+    expect(ret).toBeFalsy()
+  })
 })
