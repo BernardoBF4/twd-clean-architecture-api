@@ -51,8 +51,16 @@ describe('E-mail validation', () => {
   })
 
   test('should not accept empty local part', () => {
-    const email: string = "@email.com"
-    
+    const email: string = '@email.com'
+
+    const ret: boolean = Email.validate(email)
+
+    expect(ret).toBeFalsy()
+  })
+
+  test('should not accept empty domain', () => {
+    const email: string = 'any@'
+
     const ret: boolean = Email.validate(email)
 
     expect(ret).toBeFalsy()
