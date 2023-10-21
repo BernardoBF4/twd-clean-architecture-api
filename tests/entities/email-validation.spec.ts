@@ -1,4 +1,3 @@
-import { log } from 'console'
 import Email from '../../src/entities/email'
 
 describe('E-mail validation', () => {
@@ -76,6 +75,30 @@ describe('E-mail validation', () => {
 
   test('should not accept local part with invalid characters', () => {
     const email: string = 'any email@email.com'
+
+    const ret: boolean = Email.validate(email)
+
+    expect(ret).toBeFalsy()
+  })
+
+  test('should not accept local part with two dots', () => {
+    const email: string = 'any..email@email.com'
+
+    const ret: boolean = Email.validate(email)
+
+    expect(ret).toBeFalsy()
+  })
+
+  test('should not accept local part with dot at its end', () => {
+    const email: string = 'any.email.@email.com'
+
+    const ret: boolean = Email.validate(email)
+
+    expect(ret).toBeFalsy()
+  })
+
+  test('should not accept email without @ sign', () => {
+    const email: string = 'any.emailemail.com'
 
     const ret: boolean = Email.validate(email)
 
