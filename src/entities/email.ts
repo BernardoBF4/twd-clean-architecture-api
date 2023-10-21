@@ -17,6 +17,10 @@ export default class Email {
     if (domain.length > 255 || domain.length === 0) {
       return false
     }
+    const domain_parts = domain.split('.')
+    if (domain_parts.some((domain_part) => domain_part.length > 63)) {
+      return false
+    }
 
     return true
   }
