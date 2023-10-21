@@ -1,5 +1,12 @@
 export default class Email {
   public static validate(email: string): boolean {
+    const email_regex =
+      /^[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/
+
+    if (!email_regex.test(email)) {
+      return false
+    }
+
     if (!email) {
       return false
     }
@@ -17,6 +24,7 @@ export default class Email {
     if (domain.length > 255 || domain.length === 0) {
       return false
     }
+
     const domain_parts = domain.split('.')
     if (domain_parts.some((domain_part) => domain_part.length > 63)) {
       return false
