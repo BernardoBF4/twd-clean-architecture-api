@@ -49,4 +49,12 @@ describe('E-mail validation', () => {
 
     expect(ret).toBeFalsy()
   })
+
+  test('should not accept empty local part', () => {
+    const email: string = "@email.com"
+    
+    const ret: boolean = Email.validate(email)
+
+    expect(ret).toBeFalsy()
+  })
 })
