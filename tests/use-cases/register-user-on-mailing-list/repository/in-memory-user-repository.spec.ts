@@ -1,5 +1,5 @@
-import InMemoryUserRepository from './in-memory-user-repository'
-import { UserData } from '../../../../src/entities'
+import { UserData } from '@/entities'
+import { InMemoryUserRepository } from '@test/use-cases/register-user-on-mailing-list/repository'
 
 describe('In memory User repository', () => {
   test('should return null if user is not found', async () => {
