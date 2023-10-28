@@ -1,6 +1,5 @@
-import { execPath } from 'process'
-import InMemoryUserRepository from '../../../../src/use-cases/register-user-on-mailing-list/repository/in-memory-user-repository'
-import UserData from '../../../../src/use-cases/register-user-on-mailing-list/user-data'
+import InMemoryUserRepository from './in-memory-user-repository'
+import UserData from '../../../../src/entities/user-data'
 
 describe('In memory User repository', () => {
   test('should return null if user is not found', async () => {
