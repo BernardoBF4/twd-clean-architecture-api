@@ -1,9 +1,6 @@
-import InvalidEmailError from '../../../src/entities/errors/invalid-email-error'
-import InvalidNameError from '../../../src/entities/errors/invalid-name-error'
-import UserData from '../../../src/entities/user-data'
-import { left } from '../../../src/shared/either'
-import UserRepository from '../../../src/use-cases/register-user-on-mailing-list/ports/user-repository'
-import RegisterUserOnMailingList from '../../../src/use-cases/register-user-on-mailing-list/register-user-on-mailing-list'
+import { UserData } from '../../../src/entities'
+import { UserRepository } from '../../../src/use-cases/register-user-on-mailing-list/ports'
+import { RegisterUserOnMailingList } from '../../../src/use-cases/register-user-on-mailing-list'
 import InMemoryUserRepository from './repository/in-memory-user-repository'
 
 describe('Register user on mailing list use case', () => {
