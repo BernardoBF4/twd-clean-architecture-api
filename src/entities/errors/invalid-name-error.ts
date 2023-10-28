@@ -1,1 +1,7 @@
-export default class InvalidNameError extends Error {}
+export default class InvalidNameError extends Error {
+  public readonly name: string = 'InvalidNameError'
+
+  constructor(name: string) {
+    super(`Invalid name: ${name}.`)
+  }
+}

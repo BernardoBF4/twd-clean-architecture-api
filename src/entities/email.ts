@@ -13,7 +13,7 @@ export default class Email {
       return right(new Email(email))
     }
 
-    return left(new InvalidEmailError())
+    return left(new InvalidEmailError(email))
   }
 
   public static validate(email: string): boolean {
