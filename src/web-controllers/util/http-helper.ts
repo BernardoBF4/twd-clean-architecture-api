@@ -13,3 +13,10 @@ export function badRequest(data: any): HttpResponse {
     body: data,
   }
 }
+
+export function serverError(error: any): HttpResponse {
+  return {
+    status_code: 500,
+    body: error,
+  }
+}
