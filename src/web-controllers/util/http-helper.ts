@@ -6,3 +6,10 @@ export function created(data: any): HttpResponse {
     body: data,
   }
 }
+
+export function badRequest(data: any): HttpResponse {
+  return {
+    status_code: 400,
+    body: data,
+  }
+}
